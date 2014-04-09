@@ -19,7 +19,8 @@
             <g:link mapping="listConferences">Conferences</g:link> |
             <g:link mapping="listSpeakers">Speakers</g:link> |
             <g:link mapping="listTalks">Talks</g:link> |
-            <g:link mapping="listAttendees">Attendees</g:link>
+            <g:link mapping="listAttendees">Attendees</g:link> |
+            <g:link mapping="listRooms">Rooms</g:link>
         </div>
         <g:if test="${flash.message}">
         <div>

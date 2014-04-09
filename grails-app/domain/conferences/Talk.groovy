@@ -1,11 +1,13 @@
 package conferences
 
 class Talk {
-	static belongsTo = [speaker:Speaker]
-	String name
-	String talkDate
-	String talkTime
-	static hasMany = [attendees:Attendee]
+
+    String name
+    String talkDate
+    String talkTime
+    static belongsTo = [speaker:Speaker]
+    //static belongsTo = [room:Room]
+    static hasMany = [attendees:Attendee]
 
     static constraints = {
     }
