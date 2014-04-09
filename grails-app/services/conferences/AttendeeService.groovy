@@ -41,9 +41,15 @@ class AttendeeService{
 
     Attendee deleteAttendee(long id){
         def attendee=Attendee.get(id)
+        removeFromTalks(attendee)
         attendee.delete()
         return attendee
     }
 
+    void removeFromTalks(Attendee attendee){
+        attendee.talk.each{talk ->
+            attendee.removeFromTalk(talk)
+        }
+    }
 
 }
