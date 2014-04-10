@@ -3,8 +3,10 @@ package conferences
 class Attendee {
 
     String name
-    static belongsTo = Talk
-    static hasMany = [talk:Talk]
+
+    List<Talk> getTalks(){
+        return TalkAttendee.findAllByAttendee(this).talk
+    }
 
     static constraints = {
     }

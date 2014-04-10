@@ -1,6 +1,5 @@
 package conferences
 
-
 class SpeakerController {
 	
 	def speakerService

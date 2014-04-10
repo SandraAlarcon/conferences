@@ -18,20 +18,25 @@ class AttendeeService{
         return attendee
     }
 
-    Attendee addAttendee(String name, Talk talk){
-
-        /*
+    Attendee addAttendee(String name, Long talkId){
+        log.debug ">> Talkid: $talkId"
+        def talk = Talk.get(talkId)
+      
         println "================ FROM SERVICE ==============="
         println "name: $name"
         println "talk: $talk.name"
         println "================ FROM SERVICE ==============="
-        */
+ 
 
         def attendee=new Attendee(name:name)
         if(talk){
-            attendee.addToTalk(talk)
+            //attendee.addToTalks(talk)
             //attendee.addToTalk(talk) Cuidado! no es Talks, hemos cambiado la clase de dominio:  static hasMany = [talks:Talk]
+            
             attendee.save(failOnError: true)
+            
+            new TalkAttendee(talk: talk, attendee: attendee).save()
+            
             return attendee
         }else{
             attendee.save(failOnError: true)

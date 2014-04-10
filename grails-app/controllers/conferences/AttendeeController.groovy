@@ -27,14 +27,14 @@ class AttendeeController{
 
     def add(){
 
-        Talk talk = Talk.get(params.talkId)
-
-        /*
+        Talk talk = Talk.get(params.talksId)
+    
+        
         println "==============================="
         println "Nombre: ${params.name}"
         println "Talk: ${talk}"
         println "==============================="
-        */
+        
 
 
         def attendee=Attendee.findByName(params.name)
@@ -43,7 +43,7 @@ class AttendeeController{
             redirect mapping:"addAttendee"
         }else{
             if(params.name && talk){
-                attendeeService.addAttendee(params.name,talk)
+                attendeeService.addAttendee(params.name, new Long(params.talksId))
                 flash.message="Asistente introducido correctamente en la base de datos"
                 redirect mapping:"listAttendees"
             }else{
