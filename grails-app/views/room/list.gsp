@@ -9,6 +9,7 @@
                 <g:link mapping="descriptionList" params="[id:room.id]">${room.id} ${room.name}</g:link>
             </div>
         </g:each>
+        <p><g:link mapping="addRoom">Add new room</g:link></p>
         <p><g:link mapping="index">Home</g:link></p>
     </body>
 </html>

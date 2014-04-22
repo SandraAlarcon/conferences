@@ -11,5 +11,11 @@ class RoomService{
         def room=Room.get(id)
         return room
     }
+    
+    Room addRoom(String name) {  
+		def room=new Room(name:name)
+		room.save()
+		return room
+    }
 
 }
