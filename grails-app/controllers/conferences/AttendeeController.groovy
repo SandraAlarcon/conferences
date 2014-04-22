@@ -3,6 +3,7 @@ package conferences
 class AttendeeController{
 
     def attendeeService
+    def talkService
 
     def index(){
         def attendeeList=attendeeService.indexAttendee()
@@ -17,12 +18,32 @@ class AttendeeController{
 
     def description(long id){
         def attendee=attendeeService.descriptionAttendee(id)
+        
         render view: "/attendee/description", model:['attendee':attendee]
     }
 
     def showAdd(){
         def talkList=attendeeService.showAddAttendee()
         render view:"/attendee/add", model:['talkList':talkList]
+    }
+    
+    def showUpdate(long id){
+        def attendee=attendeeService.descriptionAttendee(id)
+        def talklist=talkService.indexTalk()
+        
+        render view: "/attendee/update", model:['attendee':attendee, 'talklist':talklist]
+    }
+    
+    def update(long id){
+        def attendee=attendeeService.descriptionAttendee(id)
+        def talkListIds = params.list('talkListIds')
+        
+        
+        attendeeService.updateAttendeeTalks(attendee, talkListIds)
+        
+        
+        redirect mapping:"descriptionAttendee", params:["id":id]
+        
     }
 
     def add(){

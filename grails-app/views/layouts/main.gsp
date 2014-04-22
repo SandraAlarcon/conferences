@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title><g:layoutTitle default="Grails"/></title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="styleshet" href="${resource (dir:'css', file:'style.css')}" type="text/css"/>
+        <link rel="styleshet" href="${resource (dir:'css', file:'main.css')}" type="text/css"/>
         <asset:javascript src="application.js"/>
         <g:layoutHead/>
     </head>

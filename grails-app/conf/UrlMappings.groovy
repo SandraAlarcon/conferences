@@ -25,6 +25,7 @@ class UrlMappings {
         name "descriptionAttendee": "/descriptionAttendee/$id" {controller="attendee"; action="description"}
         name "addAttendee": "/addAttendee" {controller="attendee"; action=[GET:"showAdd", POST:"add"]}
         name "deleteAttendee": "/deleteAttendee/$id" {controller="attendee"; action="delete"}
+        name "updateAttendee": "/updateAttendee" {controller="attendee"; action=[GET:"showUpdate", POST:"update"]}
 
         name "listRooms": "/listRooms" {controller="room"; action="index"}
         name "descriptionRoom": "/descriptionRoom/$id" {controller="room"; action="description"}

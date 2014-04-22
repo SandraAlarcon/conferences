@@ -18,7 +18,7 @@ class AttendeeService{
         return attendee
     }
 
-    Attendee addAttendee(String name, Long talkId){
+    Attendee addAttendee(String nameForAttendee, Long talkId){
         log.debug ">> Talkid: $talkId"
         def talk = Talk.get(talkId)
       
@@ -28,7 +28,8 @@ class AttendeeService{
         println "================ FROM SERVICE ==============="
  
 
-        def attendee=new Attendee(name:name)
+        def attendee=new Attendee()
+        attendee.name = nameForAttendee
         if(talk){
             //attendee.addToTalks(talk)
             //attendee.addToTalk(talk) Cuidado! no es Talks, hemos cambiado la clase de dominio:  static hasMany = [talks:Talk]
@@ -51,10 +52,45 @@ class AttendeeService{
         return attendee
     }
 
-    void removeFromTalks(Attendee attendee){
-        attendee.talk.each{talk ->
-            attendee.removeFromTalk(talk)
+    void removeFromTalks(Attendee att){
+        def listTalkAttendee = TalkAttendee.findAllByAttendee(att)
+        listTalkAttendee.each{talkAttendee ->
+            talkAttendee.delete()
         }
+    }
+    
+    def listTalksForAtendee(Attendee att){
+        def listTalkAttendee = TalkAttendee.findAllByAttendee(att)
+        def talkList = listTalkAttendee.talk
+        
+        /*
+         //Es equivalente a esto:
+        def talkList = []
+        listTalkAttendee.each{ ta ->
+            talkList.add(ta.talk)
+        }
+        */ 
+        
+        return talkList
+    }
+    
+    
+    def updateAttendeeTalks(Attendee attendee, List talkListIds){
+        
+        removeFromTalks(attendee)
+        
+        talkListIds.each{ talkId ->
+            long id = Long.parseLong(talkId)
+            def talk = Talk.get(id)
+        
+            def ta = new TalkAttendee()
+            ta.talk = talk
+            ta.attendee = attendee
+            ta.save()
+        }
+        
+        
+        
     }
 
 }

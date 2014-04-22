@@ -1,11 +1,12 @@
 package conferences
 
 class Attendee {
-
+    transient attendeeService
     String name
 
     List<Talk> getTalks(){
-        return TalkAttendee.findAllByAttendee(this).talk
+        return attendeeService.listTalksForAtendee(this)
+        //return TalkAttendee.findAllByAttendee(this).talk
     }
 
     static constraints = {
