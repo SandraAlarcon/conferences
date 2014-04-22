@@ -2,5 +2,5 @@ package conferences
 
 class Room {
     String name
-    static hasMany=[talk:Talk]
+    //static hasMany=[talk:Talk]
 }

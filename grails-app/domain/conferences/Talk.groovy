@@ -6,6 +6,7 @@ class Talk {
     String talkDate
     String talkTime
     static belongsTo = [speaker:Speaker]
+    Room room
 
     static constraints = {
     }
