@@ -22,11 +22,12 @@ class AttendeeService{
         log.debug ">> Talkid: $talkId"
         def talk = Talk.get(talkId)
       
+        /*
         println "================ FROM SERVICE ==============="
         println "name: $name"
         println "talk: $talk.name"
         println "================ FROM SERVICE ==============="
- 
+        */
 
         def attendee=new Attendee()
         attendee.name = nameForAttendee
