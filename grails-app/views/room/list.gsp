@@ -6,7 +6,7 @@
     <body>
         <g:each var="room" in="${roomList}">
             <div>
-                <g:link mapping="descriptionList" params="[id:room.id]">${room.id} ${room.name}</g:link>
+                <g:link mapping="descriptionRoom" params="[id:room.id]">${room.id} ${room.name}</g:link>
             </div>
         </g:each>
         <p><g:link mapping="addRoom">Add new room</g:link></p>
