@@ -30,6 +30,7 @@ class UrlMappings {
         name "listRooms": "/listRooms" {controller="room"; action="index"}
         name "descriptionRoom": "/descriptionRoom/$id" {controller="room"; action="description"}
         name "addRoom": "/addRoom" {controller="room"; action=[GET:"showAdd", POST:"add"]}
+        name "deleteRoom": "/deleteRoom/$id" {controller="room"; action="delete"}
 
 
         "500"(view:'/error')

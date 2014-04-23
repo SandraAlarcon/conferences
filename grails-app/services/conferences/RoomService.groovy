@@ -12,10 +12,20 @@ class RoomService{
         return room
     }
     
-    Room addRoom(String name) {  
-		def room=new Room(name:name)
-		room.save()
+    List showAddRoom(){
+        def talkList=Talk.list()
+        return talkList
+    }
+    
+    Room addRoom(String name, Talk talk) { 
+		def room=new Room(name:name,talk:talk)
+        room.save()
 		return room
     }
-
+    
+    Room deleteRoom(long id){
+        def room=Room.get(id)
+        room.delete()
+        return room
+    }
 }

@@ -5,8 +5,9 @@
     </head>
     <body>
         <div>
-            <p>Name: ${room.name}</p>
-            <p><g:link mapping="listConferences">Return</g:link></p>
+            <p>Room's name: ${room.name}</p>
+            <p><g:link mapping="deleteRoom" params="[id:room.id]">Delete room</g:link></p>
+            <p><g:link mapping="listRooms">Return</g:link></p>
         </div>
     </body>
 </html>

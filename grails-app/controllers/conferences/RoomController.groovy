@@ -3,6 +3,7 @@ package conferences
 class RoomController{
 
     def roomService
+    def talkService
 
     def index(){
         def roomList=roomService.indexRoom()
@@ -21,10 +22,13 @@ class RoomController{
     }
     
     def showAdd(){
-		render view:"/room/add", model:[]
+        def talkList = roomService.showAddRoom()
+		render view:"/room/add", model:['talkList':talkList]
     }
     
     def add(){
+        Talk talk = Talk.get(params.talksId)
+        
 		def room=Room.findByName(params.name)
 		if (room){
 			flash.message="Ya existe dicha sala. Introduzca otro nombre"
@@ -39,5 +43,10 @@ class RoomController{
 				redirect mapping:"addRoom"
 			}
 		}
+    }
+    
+    def delete(long id){
+        def room=roomService.deleteRoom(id)
+        redirect mapping: "listRooms"
     }
 }
