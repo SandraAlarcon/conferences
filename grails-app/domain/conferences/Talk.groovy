@@ -9,5 +9,6 @@ class Talk {
     Room room
 
     static constraints = {
+        room nullable:true
     }
 }
