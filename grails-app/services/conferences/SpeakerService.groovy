@@ -20,6 +20,18 @@ class SpeakerService {
     
     Speaker deleteSpeaker(long id){
 		def speaker = Speaker.get(id)
+        
+        def listTalks = speaker.talks
+        listTalks.each {t->
+            def listTalkAttendee = TalkAttendee.findAllByTalk(t)
+                listTalkAttendee.each {ta->
+                    ta.delete()
+                }
+        }
+        
+         
+        
+        
 		speaker.delete()
 		return speaker
     }
