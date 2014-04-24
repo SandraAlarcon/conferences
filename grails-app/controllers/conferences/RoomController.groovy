@@ -34,8 +34,8 @@ class RoomController{
 			flash.message="Ya existe dicha sala. Introduzca otro nombre"
 			redirect mapping:"addRoom" 
 		}else{
-			if(params.name){
-				roomService.addRoom(params.name)
+			if(params.name && talk){
+				roomService.addRoom(params.name,talk)
 				flash.message="Sala creada correctamente"
 				redirect mapping:"listRooms" 
 			}else{
