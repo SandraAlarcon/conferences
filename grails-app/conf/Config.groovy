@@ -113,3 +113,19 @@ grails {
     }
 }
 remove this line */
+
+
+// Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'conferences.User'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'conferences.UserRole'
+grails.plugin.springsecurity.authority.className = 'conferences.Role'
+grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+	'/':                              ['permitAll'],
+	'/index':                         ['permitAll'],
+	'/index.gsp':                     ['permitAll'],
+	'/**/js/**':                      ['permitAll'],
+	'/**/css/**':                     ['permitAll'],
+	'/**/images/**':                  ['permitAll'],
+	'/**/favicon.ico':                ['permitAll']
+]
+
