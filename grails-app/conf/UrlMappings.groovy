@@ -31,6 +31,22 @@ class UrlMappings {
         name "descriptionRoom": "/descriptionRoom/$id" {controller="room"; action="description"}
         name "addRoom": "/addRoom" {controller="room"; action=[GET:"showAdd", POST:"add"]}
         name "deleteRoom": "/deleteRoom/$id" {controller="room"; action="delete"}
+        
+        
+        
+        //Login
+        name loginIndex: "/login/index" {controller = 'login'; action = 'index'}
+        name loginAuth: "/login/auth" {controller = 'login'; action = 'auth'}
+        name loginAuthAjax: "/login/authAjax" {controller = 'login'; action = 'authAjax'}
+        name loginDenied: "/login/denied" {controller = 'login'; action = 'denied'}
+        name loginFull: "/login/full" {controller = 'login'; action = 'full'}
+        name loginAuthFail: "/login/authfail" {controller = 'login'; action = 'authfail'}
+        name loginAjaxSuccess: "/login/ajaxSuccess" {controller = 'login'; action = 'ajaxSuccess'}
+        name loginAjaxDenied: "/login/ajaxDenied" {controller = 'login'; action = 'ajaxDenied'}
+        name logoutIndex: "/logout" {controller = 'logout'; action = 'index'}
+
+        
+        
 
 
         "500"(view:'/error')
