@@ -1,13 +1,16 @@
 package conferences
+import grails.plugin.springsecurity.annotation.Secured
 
-
+@Secured(['ROLE_ADMIN'])
 class ConferenceController {
 	def conferenceService
 
+    @Secured(['ROLE_USER'])
     def index() {    
         render view:"/conference/home", model:[]
     }
     
+    @Secured(['ROLE_USER'])
     def list() {    
         def conferenceList=conferenceService.listConference()
         if(conferenceList){
@@ -19,6 +22,7 @@ class ConferenceController {
         }
     }
     
+    @Secured(['ROLE_USER'])
     def description(long id){
 		def conference = conferenceService.descriptionConference(id)
 		render view:"/conference/description", model:['conference':conference]

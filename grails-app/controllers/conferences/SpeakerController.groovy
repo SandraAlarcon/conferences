@@ -1,10 +1,13 @@
 package conferences
+import grails.plugin.springsecurity.annotation.Secured
 
+@Secured(['ROLE_ADMIN'])
 class SpeakerController {
 	
 	def speakerService
 
-	def index() {    
+	@Secured(['ROLE_USER'])
+    def index() {    
         def speakerList = speakerService.indexSpeaker()
         if(speakerList){
 			flash.message="Listado de ponentes:"
@@ -15,6 +18,7 @@ class SpeakerController {
         }
     }
     
+    @Secured(['ROLE_USER'])
     def description(long id){
 		def speaker=speakerService.descriptionSpeaker(id)
 		render view:"/speaker/description", model:['speaker':speaker]
