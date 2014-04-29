@@ -7,7 +7,7 @@ class RoomController{
     def roomService
     def talkService
 
-    @Secured(['ROLE_USER'])
+     @Secured(['ROLE_USER','ROLE_ADMIN'])
     def index(){
         def roomList=roomService.indexRoom()
         if(roomList){
@@ -19,7 +19,7 @@ class RoomController{
         }
     }
 
-    @Secured(['ROLE_USER'])
+     @Secured(['ROLE_USER','ROLE_ADMIN'])
     def description(long id){
         def room=roomService.descriptionRoom(id)
         render view:"/room/description", model:['room':room]

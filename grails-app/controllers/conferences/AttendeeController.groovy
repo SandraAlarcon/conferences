@@ -7,7 +7,7 @@ class AttendeeController{
     def attendeeService
     def talkService
 
-    @Secured(['ROLE_USER'])
+    @Secured(['ROLE_USER','ROLE_ADMIN'])
     def index(){
         def attendeeList=attendeeService.indexAttendee()
         if(attendeeList){
@@ -19,7 +19,7 @@ class AttendeeController{
         }
     }
 
-    @Secured(['ROLE_USER'])
+     @Secured(['ROLE_USER','ROLE_ADMIN'])
     def description(long id){
         def attendee=attendeeService.descriptionAttendee(id)
         

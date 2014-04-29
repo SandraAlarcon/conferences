@@ -6,7 +6,7 @@ class SpeakerController {
 	
 	def speakerService
 
-	@Secured(['ROLE_USER'])
+	 @Secured(['ROLE_USER','ROLE_ADMIN'])
     def index() {    
         def speakerList = speakerService.indexSpeaker()
         if(speakerList){
@@ -18,7 +18,7 @@ class SpeakerController {
         }
     }
     
-    @Secured(['ROLE_USER'])
+     @Secured(['ROLE_USER','ROLE_ADMIN'])
     def description(long id){
 		def speaker=speakerService.descriptionSpeaker(id)
 		render view:"/speaker/description", model:['speaker':speaker]

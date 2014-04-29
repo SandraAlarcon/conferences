@@ -6,7 +6,7 @@ class TalkController {
 	
 	def talkService
     
-    @Secured(['ROLE_USER'])
+     @Secured(['ROLE_USER','ROLE_ADMIN'])
     def index() { 
 		def talklist=talkService.indexTalk()
 		if(talklist){
@@ -18,7 +18,7 @@ class TalkController {
 		}
     }
     
-    @Secured(['ROLE_USER'])
+     @Secured(['ROLE_USER','ROLE_ADMIN'])
     def description(long id){
 		def talk=talkService.descriptionTalk(id)
 		render view:"/talk/description", model:['talk':talk]
