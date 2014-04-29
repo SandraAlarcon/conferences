@@ -43,7 +43,7 @@ class UrlMappings {
         name loginAuthFail: "/login/authfail" {controller = 'login'; action = 'authfail'}
         name loginAjaxSuccess: "/login/ajaxSuccess" {controller = 'login'; action = 'ajaxSuccess'}
         name loginAjaxDenied: "/login/ajaxDenied" {controller = 'login'; action = 'ajaxDenied'}
-        name logoutIndex: "/logout" {controller = 'logout'; action = 'index'}
+        name logoutIndex: "/logout" {controller = 'logout'}
 
         
         
